@@ -19,7 +19,7 @@ class ButtonBar extends Component {
             type="radio"
             defaultValue={1}
             bsSize="xsmall"
-            // justified
+            justified
           >
             <ToggleButton name="all" value={1}>
               <div className="buttonInfo">

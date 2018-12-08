@@ -22,13 +22,11 @@ class App extends Component {
     return (
       <div className="App">
         <Flex width={1} className="main" justifyContent="center">
-          <Flex width={[1, 1 / 2]} flexDirection="column" className='innerContainer'>
+          <Flex width={[1, 1 / 3]} my={[0, 70]} flexDirection="column" className='innerContainer'>
             <Header />
-
             <Box
-              color="white"
               bg="#f3f3f3"
-              width={[1, 1 / 2]}
+              width={1}
               p={3}
               className="bottom"
             >

@@ -12,14 +12,14 @@ class ButtonBar extends Component {
   state = {};
   render() {
     return (
-      <ButtonToolbar className="toolbar">
-        <Flex justifyContent="center">
+      <Flex justifyContent="center" width={1}>
+        <ButtonToolbar className="toolbar">
           <ToggleButtonGroup
             name="buttons"
             type="radio"
             defaultValue={1}
             bsSize="xsmall"
-            justified
+            // justified
           >
             <ToggleButton name="all" value={1}>
               <div className="buttonInfo">
@@ -40,8 +40,8 @@ class ButtonBar extends Component {
               </div>
             </ToggleButton>
           </ToggleButtonGroup>
-        </Flex>
-      </ButtonToolbar>
+        </ButtonToolbar>
+      </Flex>
     );
   }
 }

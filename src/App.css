@@ -1,9 +1,10 @@
-.container {
+.main {
   background-color: #f3f3f3;
   padding: 0;
+  height: 100vh;
 }
 
-.inner-container {
+.innerContainer {
   background-color: #fff;
 }
 

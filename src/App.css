@@ -1,5 +1,5 @@
 .main {
-  background-color: #fcfcfc;
+  background-color: #d2d0d0;
   padding: 0;
   height: 100vh;
 }
@@ -7,9 +7,9 @@
 .innerContainer {
   position: relative;
   background-color: #fff;
-  -webkit-box-shadow: 0px 0px 17px 2px rgba(168, 168, 168, 0.5);
-  -moz-box-shadow: 0px 0px 17px 2px rgba(168, 168, 168, 0.5);
-  box-shadow: 0px 0px 17px 2px rgba(168, 168, 168, 0.5);
+  -webkit-box-shadow: 0px 0px 17px 2px rgba(119, 119, 119, 0.5);
+  -moz-box-shadow: 0px 0px 17px 2px rgba(119, 119, 119, 0.5);
+  box-shadow: 0px 0px 17px 2px rgba(119, 119, 119, 0.5);
 }
 
 .bottom {

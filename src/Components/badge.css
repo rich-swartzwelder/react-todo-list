@@ -1,0 +1,12 @@
+.bdg {
+    width: 1.8em;
+    height: 1.6em;
+    border-radius: 50%;
+    background-color: rgb(99, 99, 99);
+}
+
+.bdgNumber {
+    color: white;
+    font-weight: 600;
+    padding-bottom: .1em
+}

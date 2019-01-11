@@ -1,4 +1,7 @@
 import React, { Component } from "react";
+// import { FormGroup, FormControl } from "react-bootstrap";
+import { Flex } from "rebass";
+import "./todoInput.css";
 
 class TodoInput extends Component {
   constructor(props) {
@@ -6,22 +9,20 @@ class TodoInput extends Component {
 
     this.todoRef = React.createRef();
   }
-  componentDidUpdate() {
-    this.todoRef.current.focus();
-  }
+
   render() {
     return (
       <div>
-        <React.Fragment>
+        <Flex>
           <input
+            className="todoTextField"
             autoFocus
-            ref={this.todoRef}
             type="text"
             value={this.props.newTodo}
             onChange={this.props.onChange}
             placeholder="What do you need to do?"
           />
-        </React.Fragment>
+        </Flex>
       </div>
     );
   }

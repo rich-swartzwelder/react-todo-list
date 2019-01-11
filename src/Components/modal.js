@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-import { Alert, Button, Form, Modal } from "react-bootstrap";
+import { Modal } from "react-bootstrap";
+import { Button, Text } from "rebass";
 import TodoInput from "./todoInput";
 
 class InputModal extends Component {
@@ -7,9 +8,9 @@ class InputModal extends Component {
     let error;
     if (this.props.errorMsg.length > 0) {
       error = (
-        <Alert bsStyle="danger">
-          <strong>{this.props.errorMsg}</strong>
-        </Alert>
+        <Text color="red" fontWeight="600" fontSize={2}>
+          {this.props.errorMsg}
+        </Text>
       );
     } else {
       error = null;
@@ -20,45 +21,29 @@ class InputModal extends Component {
   render() {
     return (
       <Modal show={this.props.show} onHide={this.props.toggleModal}>
-        <Modal.Header>
+        <Modal.Header closeButton>
           <Modal.Title>New todo</Modal.Title>
         </Modal.Header>
+
         <Modal.Body>
-          <Form onSubmit={this.props.onSubmit}>
+          <form onSubmit={this.props.onSubmit}>
             <TodoInput
               onChange={this.props.onChange}
               newTodo={this.props.newTodo}
             />
-          </Form>
+          </form>
           {this.renderError()}
         </Modal.Body>
+
         <Modal.Footer>
-          <Button onClick={this.props.toggleModal}>Cancel</Button>
-          <Button bsStyle="primary" onClick={this.props.onSubmit}>
+          <Button bg="#a9a9a9" onClick={this.props.toggleModal}>
+            Cancel
+          </Button>
+          <Button bg="#0088cc" ml={2} onClick={this.props.onSubmit}>
             Add
           </Button>
         </Modal.Footer>
       </Modal>
-      //   <Modal isOpen={this.props.modal} toggle={this.props.toggleModal}>
-      //     <ModalHeader toggle={this.props.toggleModal}>New todo</ModalHeader>
-      //     <ModalBody className="my-4">
-      //       <Form onSubmit={this.props.onSubmit}>
-      //         <TodoInput
-      //           onChange={this.props.onChange}
-      //           newTodo={this.props.newTodo}
-      //         />
-      //       </Form>
-      //       {this.renderError()}
-      //     </ModalBody>
-      //     <ModalFooter>
-      //       <Button color="info" onClick={this.props.onSubmit}>
-      //         Add
-      //       </Button>
-      //       <Button color="secondary" onClick={this.props.toggleModal}>
-      //         Cancel
-      //       </Button>
-      //     </ModalFooter>
-      //   </Modal>
     );
   }
 }

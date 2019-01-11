@@ -1,0 +1,35 @@
+.button {
+    font-size: .9em;
+    padding: 1.2em .8em;
+    background-color: #a9a9a9;
+
+}
+
+.buttonName {
+    font-weight: 600;
+}
+
+.btnBadge {
+    position: relative;
+}
+
+.btn1 {
+    border-radius: 0;
+}
+
+.btn2 {
+    border-radius: 0;
+    border-left: 1px solid rgba(0, 0, 0, 0.4);
+    border-right: 1px solid rgba(0, 0, 0, 0.4);
+}
+
+.btn3 {
+    border-radius: 0;
+}
+
+.buttonName {
+    padding: 0 .4em 0 0;
+    display: inline;
+}
+
+

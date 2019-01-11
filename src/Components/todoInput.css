@@ -1,0 +1,8 @@
+.todoTextField {
+    width: 100%;
+    background-color: #efefef;
+    padding: 0 0 0 .1em;
+    border-radius: 5px 0 0 5px;
+    padding: .5em;
+    font-size: 1.1em
+}

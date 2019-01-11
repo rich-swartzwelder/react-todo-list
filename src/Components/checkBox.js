@@ -1,6 +1,5 @@
 import React, { Component } from "react";
-// import { IoIosCheckboxOutline, IoIosSquareOutline } from "react-icons/io";
-import { MdCheckBox, MdCheckBoxOutlineBlank } from 'react-icons/md'
+import { MdCheckBox, MdCheckBoxOutlineBlank } from "react-icons/md";
 
 class Checkbox extends Component {
   handleCheckTodo = () => {
@@ -9,9 +8,9 @@ class Checkbox extends Component {
 
   render() {
     return this.props.complete ? (
-      <MdCheckBox onClick={this.handleCheckTodo} />
+      <MdCheckBox size="32" onClick={this.handleCheckTodo} />
     ) : (
-      <MdCheckBoxOutlineBlank onClick={this.handleCheckTodo} />
+      <MdCheckBoxOutlineBlank size="32" onClick={this.handleCheckTodo} />
     );
   }
 }

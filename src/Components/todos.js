@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import Todo from "./todo";
-import { ListGroup } from "react-bootstrap";
+import TodoFlex from "./todoFlex";
+import "./todos.css";
 
 class Todos extends Component {
   renderActiveTodos = () => {
@@ -8,7 +8,7 @@ class Todos extends Component {
     if (this.props.showActive) {
       return activeTodos.map(todo => {
         return (
-          <Todo
+          <TodoFlex
             key={todo.id}
             todoTitle={todo.title}
             todoId={todo.id}
@@ -31,14 +31,14 @@ class Todos extends Component {
     if (this.props.showComplete) {
       return completeTodos.map(todo => {
         return (
-          <Todo
+          <TodoFlex
             key={todo.id}
             todoTitle={todo.title}
             todoId={todo.id}
             complete={todo.complete}
             onToggleCheck={this.props.onToggleCheck}
             onDeleteTodo={this.props.onDeleteTodo}
-            onEdit={this.handleEditTodo}
+            onEdit={this.props.onEdit}
           />
         );
       });
@@ -49,10 +49,12 @@ class Todos extends Component {
 
   render() {
     return (
-      <ListGroup>
-        {this.renderCompleteTodos()}
-        {this.renderActiveTodos()}
-      </ListGroup>
+      <div>
+        <div className="columnReverse">
+          {this.renderCompleteTodos()}
+          {this.renderActiveTodos()}
+        </div>
+      </div>
     );
   }
 }

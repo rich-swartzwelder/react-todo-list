@@ -1,0 +1,27 @@
+.item {
+    padding: 1.5em .2em 1em .2em;
+    border: none;
+    border-bottom: 1px solid rgba(0, 0, 0, .125);
+    background-color: #efefef;
+    color: rgba(0, 0, 0, 0.6);
+}
+
+.item:last-child {
+    border-bottom: 1px solid rgba(0, 0, 0, .125) !important;
+}
+
+.checkBox {
+    margin: .1em 0 0 .1em;
+    font-size: 1.7em;
+}
+
+.todoTitle {
+    /* border: 1px solid green; */
+    font-size: 1.6em;
+    padding: 0 0 .2em .2em;
+    word-break: break-all
+}
+
+.icons {
+    /* border: 1px solid blue; */
+}

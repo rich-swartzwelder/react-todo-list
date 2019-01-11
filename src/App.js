@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-import { Box, Flex } from "rebass";
+import { Flex } from "rebass";
 import Header from "./Components/header";
-import ButtonBar from "./Components/buttonBar";
+import BottomNav from "./Components/bottomNav";
 import InputModal from "./Components/modal";
 import Todos from "./Components/todos";
 import "./App.css";
@@ -26,6 +26,7 @@ class App extends Component {
 
   handleToggleModal = () => {
     this.setState({ modal: !this.state.modal });
+    this.handleResetState();
   };
 
   validateTodo = () => {
@@ -64,6 +65,7 @@ class App extends Component {
         ]
       });
 
+      this.scrollToTop();
       this.setState({ newTodo: "" });
       this.generateNewId();
       this.handleToggleModal();
@@ -83,6 +85,26 @@ class App extends Component {
         }
       })
     });
+  };
+
+  handleSubmitEdit = id => {
+    const isValid = this.validateTodo();
+
+    if (isValid) {
+      this.setState({
+        allTodos: this.state.allTodos.map(todo => {
+          if (todo.id === id) {
+            return {
+              ...todo,
+              title: this.state.newTodo
+            };
+          } else {
+            return todo;
+          }
+        })
+      });
+      this.setState({ newTodo: "" });
+    }
   };
 
   handleDeleteTodo = todo => {
@@ -123,7 +145,6 @@ class App extends Component {
     let completeTodosNum = this.state.allTodos.filter(todo => todo.complete)
       .length;
 
-    console.log(this.state.allTodos);
     return (
       <div className="App">
         <Flex width={1} className="main" justifyContent="center">
@@ -133,7 +154,15 @@ class App extends Component {
             flexDirection="column"
             className="innerContainer"
           >
-            <Header toggleModal={this.handleToggleModal} />
+            <Header
+              className="header"
+              toggleModal={this.handleToggleModal}
+              show={this.state.modal}
+              onChange={this.handleEnterTodo}
+              newTodo={this.state.newTodo}
+              onSubmit={this.handleSubmitTodo}
+              errorMsg={this.state.errorMsg}
+            />
 
             <InputModal
               show={this.state.modal}
@@ -143,24 +172,27 @@ class App extends Component {
               toggleModal={this.handleToggleModal}
               errorMsg={this.state.errorMsg}
             />
-            <Todos
-              allTodos={this.state.allTodos}
-              onToggleCheck={this.handleCheckTodo}
-              onDeleteTodo={this.handleDeleteTodo}
-              onChange={this.handleEnterTodo}
-              // onEdit={this.handleSubmitEdit}
-              errorMsg={this.state.errorMsg}
-              showActive={this.state.showActive}
-              showComplete={this.state.showComplete}
-            />
 
-            <Box bg="#f3f3f3" width={1} p={3} className="bottom">
-              <ButtonBar
-                allTodosNum={allTodosNum}
-                activeTodosNum={activeTodosNum}
-                completeTodosNum={completeTodosNum}
+            <div className="todoContainer">
+              <Todos
+                id="todos"
+                allTodos={this.state.allTodos}
+                onToggleCheck={this.handleCheckTodo}
+                onDeleteTodo={this.handleDeleteTodo}
+                onChange={this.handleEnterTodo}
+                onEdit={this.handleSubmitEdit}
+                errorMsg={this.state.errorMsg}
+                showActive={this.state.showActive}
+                showComplete={this.state.showComplete}
               />
-            </Box>
+            </div>
+            <BottomNav
+              className="footer"
+              allTodosNum={allTodosNum}
+              activeTodosNum={activeTodosNum}
+              completeTodosNum={completeTodosNum}
+              showTodos={this.handleShowTodos}
+            />
           </Flex>
         </Flex>
       </div>

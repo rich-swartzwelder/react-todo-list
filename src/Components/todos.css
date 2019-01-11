@@ -1,0 +1,7 @@
+.columnReverse {
+    display: flex;
+    flex-direction: column-reverse;
+    overflow: scroll;
+    position: relative;
+    z-index: 0;
+}
